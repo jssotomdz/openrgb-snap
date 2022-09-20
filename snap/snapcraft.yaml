@@ -1,0 +1,61 @@
+name: openrgb # you probably want to 'snapcraft register <name>'
+base: core20
+version: '0.7'
+summary: Open source RGB lighting control that doesn't depend on manufacturer software.
+description: |
+  One of the biggest complaints about RGB is the software ecosystem surrounding it. Every manufacturer has their own app, their own brand, their own style. If you want to mix and match
+  devices, you end up with a ton of conflicting, functionally identical apps competing for your background resources. On top of that, these apps are proprietary and Windows-only. Some
+  even require online accounts. What if there was a way to control all of your RGB devices from a single app, without any nonsense? That is what OpenRGB sets out to achieve. One app to
+  rule them all.
+
+grade: devel
+confinement: devmode
+
+apps:
+  openrgb: 
+    command: usr/bin/openrgb
+    extensions:
+      - kde-neon
+    
+parts:
+  openrgb:
+    source: http://github.com/CalcProgrammer1/OpenRGB.git
+    plugin: qmake
+    build-snaps:
+      - kde-frameworks-5-qt-5-15-core20
+      - kde-frameworks-5-qt-5-15-core20-sdk
+    build-packages:
+      - build-essential 
+      - qtcreator
+      - qtbase5-dev
+      - qtchooser
+      - qt5-qmake
+      - qtbase5-dev-tools
+      - libusb-1.0-0-dev
+      - libhidapi-dev
+      - pkgconf
+      - libmbedtls-dev
+      - qttools5-dev-tools
+    stage-packages:
+      - libdouble-conversion3
+      - libfreetype6
+      - libgl1
+      - libglvnd0
+      - libglx0
+      - libgraphite2-3
+      - libharfbuzz0b
+      - libhidapi-hidraw0
+      - libicu66
+      - libmbedcrypto3
+      - libmbedtls12
+      - libmbedx509-0
+      - libpcre2-16-0
+      - libpng16-16
+      - libqt5core5a
+      - libqt5gui5
+      - libqt5widgets5
+      - libusb-1.0-0
+      - libx11-6
+      - libxau6
+      - libxcb1
+      - libxdmcp6
