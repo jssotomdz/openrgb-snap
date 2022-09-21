@@ -16,6 +16,8 @@ apps:
     command: usr/bin/openrgb
     extensions:
       - kde-neon
+    plugs:
+      - i2c
     
 parts:
   openrgb:
@@ -37,25 +39,7 @@ parts:
       - libmbedtls-dev
       - qttools5-dev-tools
     stage-packages:
-      - libdouble-conversion3
-      - libfreetype6
-      - libgl1
-      - libglvnd0
-      - libglx0
-      - libgraphite2-3
-      - libharfbuzz0b
       - libhidapi-hidraw0
-      - libicu66
       - libmbedcrypto3
       - libmbedtls12
       - libmbedx509-0
-      - libpcre2-16-0
-      - libpng16-16
-      - libqt5core5a
-      - libqt5gui5
-      - libqt5widgets5
-      - libusb-1.0-0
-      - libx11-6
-      - libxau6
-      - libxcb1
-      - libxdmcp6
